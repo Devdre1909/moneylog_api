@@ -5,7 +5,7 @@ mongoose.connect('mongodb://localhost:27017/moneylog',{},()=>{
 });
 
 let creditSchema = mongoose.Schema({
-    date_time: Date,
+    date_time: new Date().toJSON(),
     description: String,
     amount: Number
 });
