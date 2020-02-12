@@ -1,0 +1,6 @@
+"mongoRunner": {
+    "connections": [{
+        "name": "moneylog_connection",
+        "url": "mongodb://localhost:27017/moneylog"
+    }]
+}
