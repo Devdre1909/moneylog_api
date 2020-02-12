@@ -1,13 +1,21 @@
-const mongoose = require('mongoose') ;
+const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/moneylog',{},()=>{
-    console.log(`${new Date().toString()} => Mongo connected!`);
-});
+const Schema = mongoose.Schema;
 
-let creditSchema = mongoose.Schema({
-    date_time: new Date().toJSON(),
-    description: String,
-    amount: Number
+let creditSchema = new Schema({
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    description: {
+        type: String,
+        match: /[a-zA-Z]/,
+        required: true
+    },
+    amount: {
+        type: Number,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('credit', creditSchema);
