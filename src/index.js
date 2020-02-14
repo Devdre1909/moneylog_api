@@ -6,6 +6,7 @@ const chalk = require("chalk");
 
 const connectDb = require('../config/db.mongo');
 const creditRoute = require("./routes/credit.route");
+const debitRoute = require("./routes/debit.route");
 
 const app = express();
 env.config({
@@ -25,8 +26,9 @@ app.use((req, res, next) => {
 });
 
 app.use(creditRoute);
+app.use(debitRoute);
 app.use(express.static("public"));
 
 app.listen(PORT, () => {
-    console.log(chalk.green(`Sever started on ${PORT}`));
+    console.log(chalk.bgWhite.black(`\n Sever started on ${PORT}`));
 });
